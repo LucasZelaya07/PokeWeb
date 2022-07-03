@@ -48,7 +48,7 @@
                 <label for="txtUrlImagen" class="form-label">UrlImagen</label>
                 <asp:TextBox CssClass="form-control" runat="server" ID="txtUrlImagen" />
             </div>
-            <a href="ListaPokemon.aspx" class="btn btn-success">Aceptar</a>
+            <a href="PokemonLista.aspx" class="btn btn-success">Aceptar</a>
             <a href="Default.aspx">Cancelar</a>
         </div>
     </div>
