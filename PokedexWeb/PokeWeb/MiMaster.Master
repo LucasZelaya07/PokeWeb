@@ -23,7 +23,10 @@
                         <a class="nav-link" href="Default.aspx">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="PokemonLista.aspx">Formulario</a>
+                        <a class="nav-link" href="PokemonLista.aspx">Lista</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="FormularioPokemon.aspx">Formulario</a>
                     </li>
                 </ul>
             </div>

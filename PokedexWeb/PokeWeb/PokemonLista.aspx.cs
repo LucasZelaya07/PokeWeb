@@ -16,5 +16,17 @@ namespace PokeWeb
             gvPokemon.DataSource = negocio.ListarConSP();
             gvPokemon.DataBind();
         }
+
+        protected void gvPokemon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string Id = gvPokemon.SelectedDataKey.Value.ToString();
+            Response.Redirect("FormularioPokemon.aspx?id=" + Id);
+        }
+
+        protected void gvPokemon_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvPokemon.PageIndex = e.NewPageIndex;
+            gvPokemon.DataBind();
+        }
     }
 }
