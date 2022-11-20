@@ -77,41 +77,6 @@ namespace PokeWeb
             imgPokemon.ImageUrl = txtUrlImagen.Text;
         }
 
-        protected void btnAceptar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Pokemon nuevo = new Pokemon();
-                PokemonNegocio negocio = new PokemonNegocio();
-
-
-                nuevo.Numero = int.Parse(txtNumero.Text);
-                nuevo.Nombre = txtNombre.Text;
-                nuevo.Descripcion = txtDescripcion.Text;
-                nuevo.UrlImagen = txtUrlImagen.Text;
-
-                nuevo.Tipo = new Elemento();
-                nuevo.Tipo.Id = int.Parse(ddlTipo.SelectedValue);
-                nuevo.Debilidad = new Elemento();
-                nuevo.Debilidad.Id = int.Parse(ddlDebilidad.SelectedValue);
-
-                if (Request.QueryString["id"] != null)
-                {
-                    nuevo.Id = int.Parse(txtID.Text);
-                    negocio.modificarConSP(nuevo);
-                }
-                else
-                {
-
-                    negocio.agregarConSP(nuevo);
-                }
-                Response.Redirect("PokemonLista.aspx", false);
-            }
-            catch (Exception ex)
-            {
-                Session.Add("Error", ex);
-            }
-        }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -136,6 +101,44 @@ namespace PokeWeb
             }
         }
 
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Pokemon nuevo = new Pokemon();
+                PokemonNegocio negocio = new PokemonNegocio();
+
+
+                nuevo.Numero = int.Parse(txtNumero.Text);
+                nuevo.Nombre = txtNombre.Text;
+                nuevo.Descripcion = txtDescripcion.Text;
+                nuevo.UrlImagen = txtUrlImagen.Text;
+
+                nuevo.Tipo = new Elemento();
+                nuevo.Tipo.Id = int.Parse(ddlTipo.SelectedValue);
+                nuevo.Debilidad = new Elemento();
+                nuevo.Debilidad.Id = int.Parse(ddlDebilidad.SelectedValue);
+
+                if (Request.QueryString["id"] != null)
+                {
+                    nuevo.Id = int.Parse(txtID.Text);
+                    negocio.modificarConSP(nuevo);
+                }
+                else
+                    negocio.agregarConSP(nuevo);
+
+
+                Response.Redirect("PokemonLista.aspx", false);
+            }
+            
+            catch (Exception ex)
+            {
+
+                Session.Add("Error", ex);
+            }
+        }
+
         protected void btnDesactivar_Click(object sender, EventArgs e)
         {
             try
@@ -151,5 +154,7 @@ namespace PokeWeb
                 Session.Add("Error", ex);
             }
         }
+
+       
     }
 }
