@@ -28,8 +28,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="FormularioPokemon.aspx">Form</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.aspx">Contact</a>
+                    </li>
                 </ul>
             </div>
+        <div class="d-flex">
+            <%if (!negocio.Seguridad.SessionActiva(Session["Trainee"]))
+                { %>
+            <a href="Login.aspx" class="btn btn-success">Login</a>
+            <a href="Registro.aspx" class="btn btn-info">Sign up</a>
+        <%}
+            else
+            {%>
+            <asp:Button Text="Logout" ID="btnSalir" OnClick="btnSalir_Click" CssClass="btn btn-success" runat="server" />
+           <%} %> 
+        </div>
         </nav>
         <div class="container">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

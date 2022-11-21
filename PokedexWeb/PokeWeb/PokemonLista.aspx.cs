@@ -14,6 +14,11 @@ namespace PokeWeb
         public bool FiltroAvanzado { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Seguridad.EsAdmin(Session["Trainee"]))
+            {
+                Session.Add("Error", "You have to be an admin to access here");
+                Response.Redirect("Error.aspx", false);
+            }
             FiltroAvanzado = chkbxFiltroAvanzado.Checked;
             if (!IsPostBack)
             {
